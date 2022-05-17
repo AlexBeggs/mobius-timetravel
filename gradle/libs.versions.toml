@@ -1,0 +1,24 @@
+[versions]
+groovy = "3.0.5"
+checkstyle = "8.37"
+mobius = "1.5.8"
+grpc = "1.45.0"
+protobuf = "3.19.4"
+
+[libraries]
+mobius-core = { module = "com.spotify.mobius:mobius-core", version.ref = "mobius" }
+jetty-server = { module = "org.eclipse.jetty:jetty-server", version = "9.4.3.v20170317" }
+grpc-kotlin-stub = { module = "io.grpc:grpc-kotlin-stub", version = "1.2.1" }
+protobuf-protoc = { module= "com.google.protobuf:protoc", version.ref="protobuf" }
+protobuf-javautil = { module = "com.google.protobuf:protobuf-java-util", version.ref = "protobuf" }
+protobuf-kotlin = { module = "com.google.protobuf:protobuf-kotlin", version.ref = "protobuf" }
+protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobuf" }
+grpc-netty = { module = "io.grpc:grpc-netty-shaded", version.ref = "grpc" }
+grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
+grpc-okhttp = { module = "io.grpc:grpc-okhttp", version.ref = "grpc" }
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.4.3" }
+junit = { module = "org.junit.jupiter:junit-jupiter", version= "5.8.2" }
+
+[bundles]
+grpc = ["grpc-kotlin-stub", "protobuf-kotlin", "grpc-okhttp", "grpc-protobuf", "grpc-stub"]
