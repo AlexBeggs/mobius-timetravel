@@ -19,7 +19,7 @@ jobs:
           java-version: 11
 
       - uses: gradle/wrapper-validation-action@v1
-      - run: ./gradlew build :mobius-timetravel-core:signMavenPublication
+      - run: ./gradlew --stacktrace :mobius-timetravel-core:signMavenPublication
 
       - name: Extract release notes
         id: release_notes
