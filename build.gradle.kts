@@ -37,7 +37,10 @@ allprojects {
             useJUnitPlatform()
         }
 
-        apply(plugin = "com.vanniktech.maven.publish")
+        if (this.path.startsWith(":examples").not()) {
+            apply(plugin = "com.vanniktech.maven.publish")
+        }
+
         plugins.whenPluginAdded {
             if (this is JavaPlugin) {
                 configure<JavaPluginExtension> {
