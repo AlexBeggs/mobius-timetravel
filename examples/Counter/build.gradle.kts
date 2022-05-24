@@ -6,12 +6,6 @@ plugins {
 android {
     compileSdk = 32
 
-    androidComponents {
-        // exclude the release variant, failing in Github CI validateSigning
-        val release = selector().withBuildType("release")
-        beforeVariants(release) { variantBuilder -> variantBuilder.enable = false }
-    }
-
     defaultConfig {
         applicationId = "dev.alexbeggs.counter"
         minSdk = 23
