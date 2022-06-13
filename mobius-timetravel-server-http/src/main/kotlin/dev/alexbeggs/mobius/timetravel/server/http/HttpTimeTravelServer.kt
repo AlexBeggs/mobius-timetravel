@@ -28,28 +28,31 @@ class HttpTimeTravelServer(private val port: Int = 8080) : TimeTravelServer {
                     if (baseRequest.method == "GET") {
                         if (target == "/") {
 
-                            timeTravelControllerList.filter { isActiveController(it) }.forEach {
-                                controller ->
-                                writeTimeTravelController(controller, response)
-                            }
+                            timeTravelControllerList
+                                .filter { isActiveController(it) }
+                                .forEach { controller ->
+                                    writeTimeTravelController(controller, response)
+                                }
                             // list the current models
                             baseRequest.isHandled = true
                         }
                         if (target == "/forward") {
-                            timeTravelControllerList.filter { isActiveController(it) }.forEach {
-                                controller ->
-                                controller.forward()
-                                writeTimeTravelController(controller, response)
-                                // list the current models
-                                baseRequest.isHandled = true
-                            }
+                            timeTravelControllerList
+                                .filter { isActiveController(it) }
+                                .forEach { controller ->
+                                    controller.forward()
+                                    writeTimeTravelController(controller, response)
+                                    // list the current models
+                                    baseRequest.isHandled = true
+                                }
                         }
                         if (target == "/rewind") {
-                            timeTravelControllerList.filter { isActiveController(it) }.forEach {
-                                controller ->
-                                controller.rewind()
-                                writeTimeTravelController(controller, response)
-                            }
+                            timeTravelControllerList
+                                .filter { isActiveController(it) }
+                                .forEach { controller ->
+                                    controller.rewind()
+                                    writeTimeTravelController(controller, response)
+                                }
                             baseRequest.isHandled = true
                         }
                         if (target == "/select") {
