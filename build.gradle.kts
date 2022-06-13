@@ -14,7 +14,7 @@ plugins {
     id("com.android.application") version "7.2.0" apply false
     id("org.jetbrains.kotlin.android") version "1.6.20" apply false
 
-    id("com.diffplug.spotless") version "6.4.2"
+    id("com.diffplug.spotless") version "6.7.2"
 }
 
 allprojects {
