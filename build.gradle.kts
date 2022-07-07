@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath("com.vanniktech:gradle-maven-publish-plugin:0.19.0")
+        classpath("app.cash.licensee:licensee-gradle-plugin:1.4.1")
     }
 }
 
@@ -38,6 +39,7 @@ allprojects {
         }
 
         if (this.path.startsWith(":examples").not()) {
+            apply(plugin = "app.cash.licensee")
             apply(plugin = "com.vanniktech.maven.publish")
         }
 
@@ -58,6 +60,11 @@ allprojects {
 
                 configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
                     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
+                }
+
+                configure<app.cash.licensee.LicenseeExtension> {
+                    allow("Apache-2.0")
+                    allow("MIT")
                 }
             }
         }
